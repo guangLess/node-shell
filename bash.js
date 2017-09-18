@@ -1,3 +1,21 @@
+
+var commands = require('./commands');
+//var userCommand = 'pwd';
+
+
+process.stdout.write('prompt > ');
+
+process.stdin.on('data', function (data) {
+  var str = data.toString().trim(); // remove the newline
+
+  if(str ==='pwd') commands['pwd']();
+  if(str === 'ls') commands['ls']();  
+  process.stdout.write('\nprompt > ');
+});
+
+
+
+/*
 var dateFormat = require('dateformat');
 // console.log(process);
 // console.log(Object.keys(process));
@@ -21,3 +39,4 @@ process.stdin.on('data', function (data) {
   process.stdout.write('\nprompt > ');
 
 });
+*/
